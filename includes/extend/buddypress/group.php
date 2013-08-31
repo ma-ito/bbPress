@@ -268,7 +268,6 @@ class BBP_Forums_Group_Extension extends BP_Group_Extension {
 		<h4><?php _e( 'Group Forum Settings', 'bbpress' ); ?></h4>
 
 		<fieldset>
-			<legend class="screen-reader-text"><?php _e( 'Group Forum Settings', 'bbpress' ); ?></legend>
 			<p><?php _e( 'Create a discussion forum to allow members of this group to communicate in a structured, bulletin-board style fashion.', 'bbpress' ); ?></p>
 
 			<div class="field-group">
