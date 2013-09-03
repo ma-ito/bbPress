@@ -1065,7 +1065,7 @@ function bbp_notify_subscribers( $reply_id = 0, $topic_id = 0, $forum_id = 0, $a
 			continue;
 
 		// For plugins to filter messages per reply/topic/user
-		$message = sprintf( __( '%1$s wrote:
+		$message = sprintf( __( '%1$s posted in the topic %4$s:
 
 %2$s
 
@@ -1079,7 +1079,8 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 
 			$reply_author_name,
 			$reply_content,
-			$reply_url
+			$reply_url,
+			$topic_title
 		);
 
 		$message = apply_filters( 'bbp_subscription_mail_message', $message, $reply_id, $topic_id, $user_id );
