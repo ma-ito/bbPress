@@ -799,6 +799,7 @@ class BBP_Topics_Widget extends WP_Widget {
 				endif; ?>
 
 				<li>
+					<div class="item-title">
 					<a class="bbp-forum-title" href="<?php echo esc_url( bbp_get_topic_permalink( $topic_id ) ); ?>" title="<?php echo esc_attr( bbp_get_topic_title( $topic_id ) ); ?>"><?php bbp_topic_title( $topic_id ); ?></a>
 
 					<?php if ( ! empty( $author_link ) ) : ?>
@@ -807,10 +808,10 @@ class BBP_Topics_Widget extends WP_Widget {
 
 					<?php endif; ?>
 
+					</div>
+
 					<?php if ( 'on' == $settings['show_date'] ) : ?>
-
-						<div><?php bbp_topic_last_active_time( $topic_id ); ?></div>
-
+						<span class="time-since"><?php bbp_topic_last_active_time( $topic_id ); ?></span>
 					<?php endif; ?>
 
 				</li>
