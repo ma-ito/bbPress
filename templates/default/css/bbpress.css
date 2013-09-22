@@ -920,6 +920,7 @@ div.bbp-template-notice a {
 /* =Avatars
 -------------------------------------------------------------- */
 
+/*
 #bbpress-forums p.bbp-topic-meta img.avatar,
 #bbpress-forums ul.bbp-reply-revision-log img.avatar,
 #bbpress-forums ul.bbp-topic-revision-log img.avatar,
@@ -931,6 +932,7 @@ div.bbp-template-notice a {
 	margin-bottom: -7px;
 	border: 3px double #ddd;
 }
+*/
 
 fieldset div.avatar {
 	float: right;
