@@ -183,9 +183,18 @@ li.bbp-header div.bbp-reply-content span#favorite-toggle {
 	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 	-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-	padding: 4;
+	padding: 4px;
 	margin: 12px auto 4px auto;
 	float: none;
+}
+
+.bbp-topic-title img.avatar,
+.bbp-topic-freshness img.avatar,
+.bbp-template-notice img.avatar {
+	height: 16px;
+	width: 16px;
+	vertical-align: -6px;
+	padding: 3px;
 }
 
 #bbpress-forums div.bbp-forum-author a.bbp-author-name,
@@ -1077,10 +1086,6 @@ body.my-account #bbpress-forums {
 
 /* ma-ito
 -------------------------------------------------------------- */
-
-.bbp-author-avatar img.avatar {
-	vertical-align: -5px;
-}
 
 #bbpress-forums img.avatar {
 	float: none;
