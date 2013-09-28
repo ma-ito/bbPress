@@ -1083,15 +1083,3 @@ body.my-account #bbpress-forums {
 #bbpress-forums li:hover > div.row-actions {
 	visibility: visible;
 }
-
-/* ma-ito
--------------------------------------------------------------- */
-
-#bbpress-forums img.avatar {
-	float: none;
-	margin: 0 3px 0 10px;
-}
-
-.bbp-body .bbp-reply-content {
-	font-size: 15px;
-}
