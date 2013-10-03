@@ -204,7 +204,7 @@ class BBP_Forums_Component extends BP_Component {
 			'parent_url'      => $forums_link,
 			'parent_slug'     => $this->slug,
 			'screen_function' => 'bbp_member_forums_screen_replies',
-			'position'        => 40,
+			'position'        => 100,
 			'item_css_id'     => 'replies'
 		);
 
