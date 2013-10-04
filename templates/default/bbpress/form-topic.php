@@ -119,6 +119,7 @@
 
 					<?php if ( !bbp_is_single_forum() ) : ?>
 
+						<?php if ( is_super_admin() ) : ?>
 						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
 						<p>
@@ -127,6 +128,7 @@
 						</p>
 
 						<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
+						<?php endif; ?>
 
 					<?php endif; ?>
 
