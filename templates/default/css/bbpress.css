@@ -671,7 +671,10 @@ p.form-allowed-tags {
 #bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
 	width: 100%;
 	margin: 0;
-	font-size: 12px;
+	padding: 6px;
+	font-family: inherit;
+	font-size: 14px;
+	color: #555;
 }
 
 #bbpress-forums div.bbp-the-content-wrapper table,
