@@ -119,16 +119,14 @@
 
 					<?php if ( !bbp_is_single_forum() ) : ?>
 
-						<?php if ( is_super_admin() ) : ?>
 						<?php do_action( 'bbp_theme_before_topic_form_forum' ); ?>
 
-						<p>
+						<p <?php if ( !is_super_admin() ) echo 'style="display:none"'; ?>>
 							<label for="bbp_forum_id"><?php _e( 'Forum:', 'bbpress' ); ?></label><br />
 							<?php bbp_dropdown( array( 'selected' => bbp_get_form_topic_forum() ) ); ?>
 						</p>
 
 						<?php do_action( 'bbp_theme_after_topic_form_forum' ); ?>
-						<?php endif; ?>
 
 					<?php endif; ?>
 
