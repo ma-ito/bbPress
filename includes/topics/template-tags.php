@@ -2988,15 +2988,20 @@ function bbp_single_topic_description( $args = '' ) {
 		// Build the topic description
 		$vc_int      = bbp_get_topic_voice_count   ( $topic_id, true  );
 		$voice_count = bbp_get_topic_voice_count   ( $topic_id, false );
+		$rc_int      = bbp_get_topic_reply_count   ( $topic_id, true  );
 		$reply_count = bbp_get_topic_replies_link  ( $topic_id        );
 		$time_since  = bbp_get_topic_freshness_link( $topic_id        );
 
 		// Singular/Plural
 		$voice_count = sprintf( _n( '%s voice', '%s voices', $vc_int, 'bbpress' ), $voice_count );
 
+		$last_reply = bbp_get_topic_last_reply_id( $topic_id, true );
+		// Topic has no replies
+		if ( empty( $rc_int ) ) {
+			$retstr = sprintf( __( 'This topic has no replies.', 'bbpress' ), $voice_count, $reply_count );
+
 		// Topic has replies
-		$last_reply = bbp_get_topic_last_reply_id( $topic_id );
-		if ( !empty( $last_reply ) ) {
+		} elseif ( !empty( $last_reply ) ) {
 			$last_updated_by = bbp_get_author_link( array( 'post_id' => $last_reply, 'size' => $r['size'] ) );
 			$retstr          = sprintf( __( 'This topic contains %1$s, has %2$s, and was last updated by %3$s %4$s.', 'bbpress' ), $reply_count, $voice_count, $last_updated_by, $time_since );
 

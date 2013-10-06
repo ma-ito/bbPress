@@ -1874,7 +1874,11 @@ function bbp_single_forum_description( $args = '' ) {
 				if ( bbp_is_forum_category( $forum_id ) ) {
 					$retstr = sprintf( __( 'This category contains %1$s, and was last updated by %2$s %3$s.', 'bbpress' ), $topic_text, $last_updated_by, $time_since );
 				} else {
-					$retstr = sprintf( __( 'This forum contains %1$s, and was last updated by %2$s %3$s.',    'bbpress' ), $topic_text, $last_updated_by, $time_since );
+					if ( !empty( $topic_count ) ) {
+						$retstr = sprintf( __( 'This forum contains %1$s, and was last updated by %2$s %3$s.',    'bbpress' ), $topic_text, $last_updated_by, $time_since );
+					} else {
+						$retstr = __( 'This forum is empty.', 'bbpress' );
+					}
 				}
 			}
 
