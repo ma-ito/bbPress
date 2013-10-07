@@ -170,6 +170,7 @@ li.bbp-header div.bbp-reply-content span#favorite-toggle {
 	float: left;
 	text-align: center;
 	width: 115px;
+	margin-bottom: 3px;
 }
 
 #bbpress-forums div.bbp-forum-author img.avatar,
