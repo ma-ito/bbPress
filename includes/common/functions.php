@@ -1093,7 +1093,8 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 			continue;
 
 		// Custom headers
-		$headers = apply_filters( 'bbp_subscription_mail_headers', array() );
+		//$headers = apply_filters( 'bbp_subscription_mail_headers', array() );
+		$headers = apply_filters( 'cc_append_cc_email_address', $user_id );
 
 		// Get user data of this user
 		$user = get_userdata( $user_id );
