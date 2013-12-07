@@ -962,7 +962,6 @@ fieldset div.avatar {
 
 .activity-list li.bbp_topic_create .activity-content .activity-inner,
 .activity-list li.bbp_reply_create .activity-content .activity-inner {
-	border-left: 2px solid #eaeaea;
 	margin-left: 5px;
 	padding-left: 10px;
 }
