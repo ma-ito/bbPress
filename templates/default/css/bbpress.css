@@ -335,8 +335,6 @@ span.bbp-author-ip {
 	list-style-type: upper-roman;
 }
 
-#bbpress-forums div.bbp-topic-content code,
-#bbpress-forums div.bbp-reply-content code,
 #bbpress-forums div.bbp-topic-content pre,
 #bbpress-forums div.bbp-reply-content pre {
 	font-family: Inconsolata, Consolas, Monaco, Lucida Console, monospace;
@@ -661,6 +659,11 @@ div.bbp-submit-wrapper {
 
 p.form-allowed-tags {
 	width: 462px;
+}
+p.form-allowed-tags code {
+	display: block;
+	font-size: 12px;
+	color: #333;
 }
 
 /* =TinyMCE in themes
