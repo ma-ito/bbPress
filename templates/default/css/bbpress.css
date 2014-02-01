@@ -335,6 +335,7 @@ span.bbp-author-ip {
 	list-style-type: upper-roman;
 }
 
+/*
 #bbpress-forums div.bbp-topic-content pre,
 #bbpress-forums div.bbp-reply-content pre {
 	font-family: Inconsolata, Consolas, Monaco, Lucida Console, monospace;
@@ -343,7 +344,9 @@ span.bbp-author-ip {
 	border: 1px solid #ddd;
 	padding: 2px;
 }
+*/
 
+/*
 #bbpress-forums div.bbp-topic-content pre,
 #bbpress-forums div.bbp-reply-content pre {
 	display: block;
@@ -353,7 +356,9 @@ span.bbp-author-ip {
 	white-space: pre;
 	overflow: auto;
 }
+*/
 
+/*
 #bbpress-forums div.bbp-topic-content pre code,
 #bbpress-forums div.bbp-reply-content pre code {
 	display: block;
@@ -363,6 +368,7 @@ span.bbp-author-ip {
 	background-color: transparent;
 	overflow-wrap: normal;
 }
+*/
 
 /* =Breadcrumb and Tags
 -------------------------------------------------------------- */
