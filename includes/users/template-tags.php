@@ -866,7 +866,7 @@ function bbp_user_subscribe_link( $args = '', $user_id = 0, $wrap = true ) {
 			'unsubscribe' => __( 'Unsubscribe', 'bbpress' ),
 			'user_id'     => 0,
 			'topic_id'    => 0,
-			'before'      => '&nbsp;|&nbsp;',
+			'before'      => '',
 			'after'       => ''
 		), 'get_user_subscribe_link' );
 
