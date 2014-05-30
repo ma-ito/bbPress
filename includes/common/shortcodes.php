@@ -496,7 +496,7 @@ class BBP_Shortcodes {
 		// Output the topic tags
 		wp_tag_cloud( array(
 			'smallest' => 9,
-			'largest'  => 38,
+			'largest'  => 24,
 			'number'   => 80,
 			'taxonomy' => bbp_get_topic_tag_tax_id()
 		) );
