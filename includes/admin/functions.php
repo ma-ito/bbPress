@@ -138,6 +138,36 @@ function bbp_filter_sample_permalink( $post_link, $_post, $leavename = false, $s
 }
 
 /**
+ * Sanitize permalink slugs when saving the settings page.
+ *
+ * @since bbPress (r5364)
+ *
+ * @param string $slug
+ * @return string
+ */
+function bbp_sanitize_slug( $slug = '' ) {
+
+	// Don't allow multiple slashes in a row
+	$value = preg_replace( '#/+#', '/', str_replace( '#', '', $slug ) );
+
+	// Strip out unsafe or unusable chars
+	$value = esc_url_raw( $value );
+
+	// esc_url_raw() adds a scheme via esc_url(), so let's remove it
+	$value = str_replace( 'http://', '', $value );
+
+	// Trim off first and last slashes.
+	//
+	// We already prevent double slashing elsewhere, but let's prevent
+	// accidental poisoning of options values where we can.
+	$value = ltrim( $value, '/' );
+	$value = rtrim( $value, '/' );
+
+	// Filter the result and return
+	return apply_filters( 'bbp_sanitize_slug', $value, $slug );
+}
+
+/**
  * Uninstall all bbPress options and capabilities from a specific site.
  *
  * @since bbPress (r3765)
@@ -173,15 +203,22 @@ function bbp_do_uninstall( $site_id = 0 ) {
 function bbp_do_activation_redirect() {
 
 	// Bail if no activation redirect
-    if ( ! get_transient( '_bbp_activation_redirect' ) )
+    if ( ! get_transient( '_bbp_activation_redirect' ) ) {
 		return;
+	}
 
 	// Delete the redirect transient
 	delete_transient( '_bbp_activation_redirect' );
 
 	// Bail if activating from network, or bulk
-	if ( is_network_admin() || isset( $_GET['activate-multi'] ) )
+	if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
 		return;
+	}
+
+	// Bail if the current user cannot see the about page
+	if ( ! current_user_can( 'bbp_about_page' ) ) {
+		return;
+	}
 
 	// Redirect to bbPress about page
 	wp_safe_redirect( add_query_arg( array( 'page' => 'bbp-about' ), admin_url( 'index.php' ) ) );

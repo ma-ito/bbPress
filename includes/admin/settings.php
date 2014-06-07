@@ -193,7 +193,7 @@ function bbp_admin_get_settings_fields() {
 				'args'              => array()
 			),
 
-			// Allow threadde replies
+			// Allow threaded replies
 			'_bbp_allow_threaded_replies' => array(
 				'sanitize_callback' => 'intval',
 				'args'              => array()
@@ -263,7 +263,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_root_slug' => array(
 				'title'             => __( 'Forum Root', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_root_slug',
-				'sanitize_callback' => 'esc_sql',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -292,7 +292,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_forum_slug' => array(
 				'title'             => __( 'Forum', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_forum_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -300,7 +300,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_topic_slug' => array(
 				'title'             => __( 'Topic', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_topic_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -308,7 +308,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_topic_tag_slug' => array(
 				'title'             => __( 'Topic Tag', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_topic_tag_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -316,7 +316,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_view_slug' => array(
 				'title'             => __( 'Topic View', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_view_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -324,7 +324,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_reply_slug' => array(
 				'title'             => __( 'Reply', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_reply_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -332,7 +332,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_search_slug' => array(
 				'title'             => __( 'Search', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_search_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			)
 		),
@@ -345,7 +345,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_user_slug' => array(
 				'title'             => __( 'User Base', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_user_slug',
-				'sanitize_callback' => 'sanitize_title',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -353,7 +353,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_topic_archive_slug' => array(
 				'title'             => __( 'Topics Started', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_topic_archive_slug',
-				'sanitize_callback' => 'esc_sql',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -361,7 +361,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_reply_archive_slug' => array(
 				'title'             => __( 'Replies Created', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_reply_archive_slug',
-				'sanitize_callback' => 'esc_sql',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -369,7 +369,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_user_favs_slug' => array(
 				'title'             => __( 'Favorite Topics', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_user_favs_slug',
-				'sanitize_callback' => 'esc_sql',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			),
 
@@ -377,7 +377,7 @@ function bbp_admin_get_settings_fields() {
 			'_bbp_user_subs_slug' => array(
 				'title'             => __( 'Topic Subscriptions', 'bbpress' ),
 				'callback'          => 'bbp_admin_setting_callback_user_subs_slug',
-				'sanitize_callback' => 'esc_sql',
+				'sanitize_callback' => 'bbp_sanitize_slug',
 				'args'              => array()
 			)
 		),
@@ -516,15 +516,15 @@ function bbp_admin_setting_callback_global_access() {
 	// Start the output buffer for the select dropdown
 	ob_start(); ?>
 
-	<select name="_bbp_default_role" id="_bbp_default_role" <?php bbp_maybe_admin_setting_disabled( '_bbp_default_role' ); ?>>
-
+	</label>
+	<label for="_bbp_default_role">
+		<select name="_bbp_default_role" id="_bbp_default_role" <?php bbp_maybe_admin_setting_disabled( '_bbp_default_role' ); ?>>
 		<?php foreach ( bbp_get_dynamic_roles() as $role => $details ) : ?>
 
 			<option <?php selected( $default_role, $role ); ?> value="<?php echo esc_attr( $role ); ?>"><?php echo translate_user_role( $details['name'] ); ?></option>
 
 		<?php endforeach; ?>
-
-	</select>
+		</select>
 
 	<?php $select = ob_get_clean(); ?>
 
@@ -578,7 +578,7 @@ function bbp_admin_setting_callback_subscriptions() {
 ?>
 
 	<input name="_bbp_enable_subscriptions" id="_bbp_enable_subscriptions" type="checkbox" value="1" <?php checked( bbp_is_subscriptions_active( true ) ); bbp_maybe_admin_setting_disabled( '_bbp_enable_subscriptions' ); ?> />
-	<label for="_bbp_enable_subscriptions"><?php esc_html_e( 'Allow users to subscribe to topics', 'bbpress' ); ?></label>
+	<label for="_bbp_enable_subscriptions"><?php esc_html_e( 'Allow users to subscribe to forums and topics', 'bbpress' ); ?></label>
 
 <?php
 }
@@ -635,13 +635,15 @@ function bbp_admin_setting_callback_thread_replies_depth() {
 	// Start an output buffer for the select dropdown
 	ob_start(); ?>
 
-	<select name="_bbp_thread_replies_depth" id="_bbp_thread_replies_depth" <?php bbp_maybe_admin_setting_disabled( '_bbp_thread_replies_depth' ); ?>>
-	<?php for ( $i = 2; $i <= $max_depth; $i++ ) : ?>
+	</label>
+	<label for="_bbp_thread_replies_depth">
+		<select name="_bbp_thread_replies_depth" id="_bbp_thread_replies_depth" <?php bbp_maybe_admin_setting_disabled( '_bbp_thread_replies_depth' ); ?>>
+		<?php for ( $i = 2; $i <= $max_depth; $i++ ) : ?>
 
-		<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $current_depth ); ?>><?php echo esc_html( $i ); ?></option>
+			<option value="<?php echo esc_attr( $i ); ?>" <?php selected( $i, $current_depth ); ?>><?php echo esc_html( $i ); ?></option>
 
-	<?php endfor; ?>
-	</select>
+		<?php endfor; ?>
+		</select>
 
 	<?php $select = ob_get_clean(); ?>
 
@@ -1281,7 +1283,7 @@ function bbp_admin_settings() {
 function bbp_converter_setting_callback_main_section() {
 ?>
 
-	<p><?php esc_html_e( 'Information about your previous forums database so that they can be converted. <strong>Backup your database before proceeding.</strong>', 'bbpress' ); ?></p>
+	<p><?php _e( 'Information about your previous forums database so that they can be converted. <strong>Backup your database before proceeding.</strong>', 'bbpress' ); ?></p>
 
 <?php
 }
