@@ -42,29 +42,6 @@ We're keeping things as small and light as possible while still allowing for gre
 
 == Changelog ==
 
-= 2.4.1 =
-* Fix forum status saving
-* Fix widget settings saving
-* Fix custom wp_title compatibility
-* Fix search results custom permalink compatibility
-* Fix custom user topics & replies pages
-* Fix hierarchical reply handling in converter
-
-= 2.4 =
-* Added hierarchical reply support
-* Added ability to disable forum search
-* Reorganized settings page
-* Improved rewrite rules
-* Improved responsive CSS
-* Improved code posting
-* Improved user capability integration
-* Improved cache getting and setting
-* Audit strict type comparisons
-* Audit GlotPress string escaping
-* Audit title attribute usage
-* Audit WordPress core function usage
-* General code clean-up
-
 = 2.3.2 =
 * Improved posting of preformatted code
 * Improved theme compatibility CSS
