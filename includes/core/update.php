@@ -50,12 +50,19 @@ function bbp_is_update() {
  * @return bool True if activating bbPress, false if not
  */
 function bbp_is_activation( $basename = '' ) {
+	global $pagenow;
+
 	$bbp    = bbpress();
 	$action = false;
 
-	if ( ! empty( $_REQUEST['action'] ) && ( '-1' != $_REQUEST['action'] ) ) {
+	// Bail if not in admin/plugins
+	if ( ! ( is_admin() && ( 'plugins.php' === $pagenow ) ) ) {
+		return false;
+	}
+
+	if ( ! empty( $_REQUEST['action'] ) && ( '-1' !== $_REQUEST['action'] ) ) {
 		$action = $_REQUEST['action'];
-	} elseif ( ! empty( $_REQUEST['action2'] ) && ( '-1' != $_REQUEST['action2'] ) ) {
+	} elseif ( ! empty( $_REQUEST['action2'] ) && ( '-1' !== $_REQUEST['action2'] ) ) {
 		$action = $_REQUEST['action2'];
 	}
 
@@ -65,7 +72,7 @@ function bbp_is_activation( $basename = '' ) {
 	}
 
 	// The plugin(s) being activated
-	if ( $action == 'activate' ) {
+	if ( $action === 'activate' ) {
 		$plugins = isset( $_GET['plugin'] ) ? array( $_GET['plugin'] ) : array();
 	} else {
 		$plugins = isset( $_POST['checked'] ) ? (array) $_POST['checked'] : array();
@@ -92,12 +99,19 @@ function bbp_is_activation( $basename = '' ) {
  * @return bool True if deactivating bbPress, false if not
  */
 function bbp_is_deactivation( $basename = '' ) {
+	global $pagenow;
+
 	$bbp    = bbpress();
 	$action = false;
-	
-	if ( ! empty( $_REQUEST['action'] ) && ( '-1' != $_REQUEST['action'] ) ) {
+
+	// Bail if not in admin/plugins
+	if ( ! ( is_admin() && ( 'plugins.php' === $pagenow ) ) ) {
+		return false;
+	}
+
+	if ( ! empty( $_REQUEST['action'] ) && ( '-1' !== $_REQUEST['action'] ) ) {
 		$action = $_REQUEST['action'];
-	} elseif ( ! empty( $_REQUEST['action2'] ) && ( '-1' != $_REQUEST['action2'] ) ) {
+	} elseif ( ! empty( $_REQUEST['action2'] ) && ( '-1' !== $_REQUEST['action2'] ) ) {
 		$action = $_REQUEST['action2'];
 	}
 
@@ -107,7 +121,7 @@ function bbp_is_deactivation( $basename = '' ) {
 	}
 
 	// The plugin(s) being deactivated
-	if ( $action == 'deactivate' ) {
+	if ( $action === 'deactivate' ) {
 		$plugins = isset( $_GET['plugin'] ) ? array( $_GET['plugin'] ) : array();
 	} else {
 		$plugins = isset( $_POST['checked'] ) ? (array) $_POST['checked'] : array();
