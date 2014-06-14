@@ -837,8 +837,8 @@ function bbp_forum_subscription_link( $args = array() ) {
 			'user_id'     => 0,
 			'before'      => '',
 			'after'       => '',
-			'subscribe'   => __( 'Subscribe',   'bbpress' ),
-			'unsubscribe' => __( 'Unsubscribe', 'bbpress' )
+			'subscribe'   => __( 'Subscribe this forum',   'bbpress' ),
+			'unsubscribe' => __( 'Unsubscribe this forum', 'bbpress' )
 		), 'get_forum_subscribe_link' );
 
 		// No link for categories until we support subscription hierarchy

@@ -175,8 +175,8 @@ class BBP_Forums_Component extends BP_Component {
 			'name'                => __( 'Forums', 'bbpress' ),
 			'slug'                => $this->slug,
 			'position'            => 80,
-			'screen_function'     => 'bbp_member_forums_screen_topics',
-			'default_subnav_slug' => bbp_get_topic_archive_slug(),
+			'screen_function'     => 'bbp_member_forums_screen_subscriptions',
+			'default_subnav_slug' => bbp_get_user_subscriptions_slug(),
 			'item_css_id'         => $this->id
 		);
 
@@ -232,7 +232,7 @@ class BBP_Forums_Component extends BP_Component {
 				'parent_url'      => $forums_link,
 				'parent_slug'     => $this->slug,
 				'screen_function' => 'bbp_member_forums_screen_subscriptions',
-				'position'        => 60,
+				'position'        => 10,
 				'item_css_id'     => 'subscriptions'
 			);
 		}

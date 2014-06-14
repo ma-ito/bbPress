@@ -84,7 +84,7 @@
 
 						<?php do_action( 'bbp_theme_before_reply_form_subscription' ); ?>
 
-						<p>
+						<p class="bbp_topic_subscription">
 
 							<input name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe"<?php bbp_form_topic_subscribed(); ?> tabindex="<?php bbp_tab_index(); ?>" />
 

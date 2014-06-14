@@ -156,11 +156,28 @@ li.bbp-topic-freshness {
 	padding: 8px;
 }
 
+#bbpress-forums span#subscription-toggle,
 li.bbp-header div.bbp-topic-content span#subscription-toggle,
 li.bbp-header div.bbp-topic-content span#favorite-toggle,
 li.bbp-header div.bbp-reply-content span#subscription-toggle,
 li.bbp-header div.bbp-reply-content span#favorite-toggle {
 	float: right;
+}
+
+#bbpress-forums span#subscription-toggle:hover {
+	background: #E5DFDC;
+	border-color: #D4C9C4;
+}
+#bbpress-forums span#subscription-toggle a {
+	color: #777;
+}
+#bbpress-forums div.bbp-breadcrumb + span#subscription-toggle a {
+	font-size: 13px;
+}
+#bbpress-forums span#subscription-toggle:hover a {
+	color: #555;
+	outline: none;
+	text-decoration: none;
 }
 
 #bbpress-forums div.bbp-forum-title h3,
@@ -202,7 +219,8 @@ li.bbp-header div.bbp-reply-content span#favorite-toggle {
 
 .bbp-topic-title img.avatar,
 .bbp-topic-freshness img.avatar,
-.bbp-template-notice img.avatar {
+.bbp-template-notice img.avatar,
+.bbp-topic-freshness-author img.avatar {
 	height: 16px;
 	width: 16px;
 	vertical-align: -6px;
@@ -416,7 +434,6 @@ span.bbp-author-ip {
 #bbpress-forums div#bbp-cancel-reply-to {
 	text-align: right;
 }
-*/
 
 /* =Breadcrumb and Tags
 -------------------------------------------------------------- */
@@ -719,9 +736,8 @@ body.reply-edit .bbp-reply-form code {
 }
 
 div.bbp-submit-wrapper {
-	margin-top: 15px;
-	float: right;
 	clear: both;
+	float: right;
 }
 
 p.form-allowed-tags code {
@@ -1159,6 +1175,7 @@ body.my-account #bbpress-forums {
 
 /* =Standard Mobile Landscape
 -------------------------------------------------------------- */
+/*
 @media screen and (max-device-width: 480px), screen and (-webkit-min-device-pixel-ratio: 2) {
 	-webkit-text-size-adjust: none;
 }
@@ -1238,9 +1255,11 @@ body.my-account #bbpress-forums {
 		word-wrap: break-word;
 	}
 }
+*/
 
 /* =Standard Mobile Portrait
 -------------------------------------------------------------- */
+/*
 @media only screen and (max-width: 320px) {
 	#bbpress-forums div.bbp-search-form {
 		margin-bottom: 10px;
@@ -1312,9 +1331,11 @@ body.my-account #bbpress-forums {
 		width: 95%;
 	}
 }
+*/
 
 /* =Extra Small Mobile
 -------------------------------------------------------------- */
+/*
 @media only screen and (max-width: 240px) {
 	#bbpress-forums li.bbp-header li.bbp-forum-topic-count,
 	#bbpress-forums li.bbp-header li.bbp-forum-reply-count,
@@ -1365,3 +1386,4 @@ body.my-account #bbpress-forums {
 		height: auto;
 	}
 }
+*/

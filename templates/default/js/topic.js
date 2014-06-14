@@ -8,14 +8,16 @@ jQuery( document ).ready( function ( $ ) {
 		};
 
 		$.post( bbpTopicJS.bbp_ajaxurl, $data, function ( response ) {
-			if ( response.success ) {
-				$( update_selector ).html( response.content );
-			} else {
-				if ( !response.content ) {
-					response.content = bbpTopicJS.generic_ajax_error;
+			$( update_selector ).fadeOut(200, function() {
+				if ( response.success ) {
+					$( update_selector ).fadeIn( 200 ).html( response.content );
+				} else {
+					if ( !response.content ) {
+						response.content = bbpTopicJS.generic_ajax_error;
+					}
+					alert( response.content );
 				}
-				alert( response.content );
-			}
+			});
 		} );
 	}
 

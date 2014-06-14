@@ -31,7 +31,7 @@
 
 				</div>
 
-				<h2 class="entry-title"><?php _e( 'Subscribed Topics', 'bbpress' ); ?></h2>
+				<h3 class="entry-title"><?php _e( 'Subscribed Topics', 'bbpress' ); ?></h3>
 				<div class="bbp-user-section">
 
 					<?php if ( bbp_get_user_topic_subscriptions() ) : ?>

@@ -156,7 +156,7 @@
 
 						<?php do_action( 'bbp_theme_before_topic_form_subscriptions' ); ?>
 
-						<p>
+						<p class="bbp_topic_subscription">
 							<input name="bbp_topic_subscription" id="bbp_topic_subscription" type="checkbox" value="bbp_subscribe" <?php bbp_form_topic_subscribed(); ?> tabindex="<?php bbp_tab_index(); ?>" />
 
 							<?php if ( bbp_is_topic_edit() && ( bbp_get_topic_author_id() !== bbp_get_current_user_id() ) ) : ?>

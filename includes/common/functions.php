@@ -1117,6 +1117,9 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 
 		// Get email address of subscribed user
 		$headers[] = 'Bcc: ' . get_userdata( $user_id )->user_email;
+
+		// Custom headers
+		$headers[] = apply_filters( 'cc_append_cc_email_address', $user_id );
 	}
 
 	/** Send it ***************************************************************/
