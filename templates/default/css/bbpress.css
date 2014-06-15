@@ -451,6 +451,9 @@ div.bbp-topic-tags {
 #bbpress-forums div.bbp-topic-tags p {
 	margin-bottom: 10px
 }
+#bbpress-forums div.bbp-breadcrumb p {
+	margin-left: 0;
+}
 
 #bbpress-forums div.bbp-topic-tags {
 	float: right;
