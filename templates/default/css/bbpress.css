@@ -452,7 +452,7 @@ div.bbp-topic-tags {
 	margin-bottom: 10px
 }
 #bbpress-forums div.bbp-breadcrumb p {
-	margin-left: 0;
+	padding-left: 0;
 }
 
 #bbpress-forums div.bbp-topic-tags {
