@@ -601,16 +601,19 @@ td.bbp-topic-counts {
 	.bbp-pagination-links span.current {
 		display: block;
 		float: left;
+		min-width: 10px;
 		padding: 0px 5px;
 		margin-left: 5px;
 		border: 1px solid #efefef;
 		text-decoration: none;
+		text-align: center;
 		}
 		.bbp-pagination-links a:hover,
 		.bbp-pagination-links span.current {
 			background: #eee;
 			opacity: 0.8;
 			border: 1px solid #ddd;
+			text-decoration: none;
 		}
 
 	.bbp-pagination-links span.dots {
@@ -635,6 +638,10 @@ td.bbp-topic-counts {
 		font-size: 12px;
 		padding: 1px 3px;
 		border: 1px solid #ddd;
+		text-decoration: none;
+	}
+	.bbp-topic-pagination a:hover {
+		background: #eee;
 		text-decoration: none;
 	}
 
