@@ -13,7 +13,7 @@
 
 	<div class="bbp-meta">
 
-		<span class="bbp-topic-post-date"><?php bbp_topic_post_date( bbp_get_topic_id() ); ?></span>
+		<span class="bbp-topic-post-date"><?php bbp_topic_post_date( bbp_get_topic_id(), $humanize = true ); ?></span>
 
 		<a href="<?php bbp_topic_permalink(); ?>" class="bbp-topic-permalink">#<?php bbp_topic_id(); ?></a>
 

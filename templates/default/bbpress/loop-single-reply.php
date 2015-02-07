@@ -13,7 +13,7 @@
 
 	<div class="bbp-meta">
 
-		<span class="bbp-reply-post-date"><?php bbp_reply_post_date(); ?></span>
+		<span class="bbp-reply-post-date"><?php bbp_reply_post_date( $reply_id = 0, $humanize = true ); ?></span>
 
 		<?php if ( bbp_is_single_user_replies() ) : ?>
 

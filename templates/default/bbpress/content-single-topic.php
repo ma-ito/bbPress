@@ -13,6 +13,8 @@
 
 	<?php bbp_breadcrumb(); ?>
 
+	<?php bbp_topic_subscription_link(); ?>
+
 	<?php do_action( 'bbp_template_before_single_topic' ); ?>
 
 	<?php if ( post_password_required() ) : ?>
@@ -21,9 +23,9 @@
 
 	<?php else : ?>
 
-		<?php bbp_topic_tag_list(); ?>
-
 		<?php bbp_single_topic_description(); ?>
+
+		<?php bbp_topic_tag_list(); ?>
 
 		<?php if ( bbp_show_lead_topic() ) : ?>
 
