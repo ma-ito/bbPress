@@ -84,7 +84,7 @@ body.reply-edit .reply {
 	font-size: 12px;
 	overflow: hidden;
 	border: 1px solid #eee;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 	clear: both;
 }
 
@@ -103,7 +103,9 @@ body.reply-edit .reply {
 	text-align: center;
 }
 
-#bbpress-forums li.bbp-header {
+#bbpress-forums li.bbp-header,
+.bbp-topics li.bbp-header,
+.bbp-forums-table li.bbp-header {
 	background: #303026;
 	color: #fff;
 	border: none;
@@ -632,7 +634,7 @@ td.bbp-topic-counts {
 .bbp-pagination {
 	float: left;
 	width: 100%;
-	margin-bottom: 15px;
+	margin-bottom: 10px;
 }
 
 .bbp-topic-pagination {
