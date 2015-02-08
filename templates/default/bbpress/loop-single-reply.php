@@ -52,7 +52,7 @@
 
 		<?php endif; ?>
 
-		<span class="bbp-reply-post-date"><?php bbp_reply_post_date( $reply_id = 0, $humanize = true ); ?></span>
+		<span class="bbp-reply-post-date"><?php bbp_reply_post_date( $reply_id = 0, $humanize = true ); ?>の投稿</span>
 
 		<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
 
