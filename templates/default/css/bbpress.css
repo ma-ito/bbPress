@@ -284,7 +284,6 @@ li.bbp-body div.hentry {
 	margin-bottom: 0;
 	overflow: hidden;
 	padding: 8px;
-	padding-bottom: 7px;
 }
 
 div.bbp-forum-header,
@@ -308,7 +307,7 @@ span.bbp-author-ip {
 #bbpress-forums div.bbp-topic-content,
 #bbpress-forums div.bbp-reply-content {
 	margin-left: 130px;
-	padding: 12px 0 12px 0;
+	padding: 6px 0 12px 0;
 	text-align: left;
 }
 
