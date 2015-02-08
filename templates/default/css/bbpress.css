@@ -668,6 +668,7 @@ td.bbp-topic-counts {
 }
 
 #bbpress-forums fieldset.bbp-form legend {
+	font-size: 14px;
 	padding: 5px;
 }
 
