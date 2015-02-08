@@ -124,7 +124,7 @@
 
 					<?php endif; ?>
 
-					<?php if ( current_user_can( 'moderate' ) ) : ?>
+					<?php if ( current_user_can( 'keep_gate' ) ) : ?>
 
 						<?php do_action( 'bbp_theme_before_topic_form_type' ); ?>
 

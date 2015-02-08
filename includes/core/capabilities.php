@@ -186,6 +186,8 @@ function bbp_get_caps_for_role( $role = '' ) {
 				// Primary caps
 				'spectate'              => true,
 				'participate'           => true,
+				'moderate'              => true,
+				'view_trash'            => true,
 
 				// Forum caps
 				'read_private_forums'   => true,
@@ -193,10 +195,12 @@ function bbp_get_caps_for_role( $role = '' ) {
 				// Topic caps
 				'publish_topics'        => true,
 				'edit_topics'           => true,
+				'delete_topics'         => true,
 
 				// Reply caps
 				'publish_replies'       => true,
 				'edit_replies'          => true,
+				'delete_replies'        => true,
 
 				// Topic tag caps
 				'assign_topic_tags'     => true,
