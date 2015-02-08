@@ -362,7 +362,7 @@ span.bbp-author-ip {
 #bbpress-forums div.bbp-reply-content ul,
 #bbpress-forums div.bbp-topic-content ol,
 #bbpress-forums div.bbp-reply-content ol {
-	margin: 0 15px 15px;
+	margin: 0 0 15px 15px;
 	padding: 0;
 }
 
