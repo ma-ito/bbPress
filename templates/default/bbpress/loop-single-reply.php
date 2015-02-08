@@ -13,8 +13,6 @@
 
 	<div class="bbp-meta">
 
-		<span class="bbp-reply-post-date"><?php bbp_reply_post_date( $reply_id = 0, $humanize = true ); ?></span>
-
 		<?php if ( bbp_is_single_user_replies() ) : ?>
 
 			<span class="bbp-header">
@@ -53,6 +51,8 @@
 			<?php do_action( 'bbp_theme_after_reply_author_admin_details' ); ?>
 
 		<?php endif; ?>
+
+		<span class="bbp-reply-post-date"><?php bbp_reply_post_date( $reply_id = 0, $humanize = true ); ?></span>
 
 		<?php do_action( 'bbp_theme_after_reply_author_details' ); ?>
 
