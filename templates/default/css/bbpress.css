@@ -74,6 +74,7 @@ body.reply-edit .reply {
 	background: none;
 	margin: 0;
 	list-style: none;
+	list-style-position: inside;
 }
 
 #bbpress-forums ul.bbp-lead-topic,
@@ -361,7 +362,7 @@ span.bbp-author-ip {
 #bbpress-forums div.bbp-reply-content ul,
 #bbpress-forums div.bbp-topic-content ol,
 #bbpress-forums div.bbp-reply-content ol {
-	margin: 0 0 15px 15px;
+	margin: 0 0 15px 0;
 	padding: 0;
 }
 
@@ -661,7 +662,7 @@ td.bbp-topic-counts {
 }
 
 #bbpress-forums fieldset.bbp-form {
-	border: 1px solid #eee;
+	border: 1px solid #e8e8e8;
 	padding: 10px 20px;
 	margin-bottom: 10px;
 }
