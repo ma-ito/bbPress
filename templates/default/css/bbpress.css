@@ -72,7 +72,7 @@ body.reply-edit .reply {
 
 #bbpress-forums li {
 	background: none;
-	margin: 0 0 0 1em;
+	margin: 0;
 	list-style: none;
 }
 
@@ -158,6 +158,13 @@ li.bbp-topic-freshness {
 	border-top: 1px solid #eee;
 	overflow: hidden;
 	padding: 8px;
+}
+
+#bbpress-forums li.bbp-body .bbp-topic-content li,
+#bbpress-forums li.bbp-body .bbp-reply-content li {
+	padding-left: 1em;
+	text-indent: -1em;
+	list-style-position: inside;
 }
 
 #bbpress-forums span#subscription-toggle,
