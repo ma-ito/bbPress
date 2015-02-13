@@ -2043,15 +2043,17 @@ function bbp_reply_trash_link( $args = '' ) {
 			return;
 		}
 
+		/*
 		if ( bbp_is_reply_trash( $reply->ID ) ) {
 			$actions['untrash'] = '<a title="' . esc_attr__( 'Restore this item from the Trash', 'bbpress' ) . '" href="' . esc_url( wp_nonce_url( add_query_arg( array( 'action' => 'bbp_toggle_reply_trash', 'sub_action' => 'untrash', 'reply_id' => $reply->ID ) ), 'untrash-' . $reply->post_type . '_' . $reply->ID ) ) . '" class="bbp-reply-restore-link">' . $r['restore_text'] . '</a>';
 		} elseif ( EMPTY_TRASH_DAYS ) {
 			$actions['trash']   = '<a title="' . esc_attr__( 'Move this item to the Trash',      'bbpress' ) . '" href="' . esc_url( wp_nonce_url( add_query_arg( array( 'action' => 'bbp_toggle_reply_trash', 'sub_action' => 'trash',   'reply_id' => $reply->ID ) ), 'trash-'   . $reply->post_type . '_' . $reply->ID ) ) . '" class="bbp-reply-trash-link">'   . $r['trash_text']   . '</a>';
 		}
+		*/
 
-		if ( bbp_is_reply_trash( $reply->ID ) || !EMPTY_TRASH_DAYS ) {
+		//if ( bbp_is_reply_trash( $reply->ID ) || !EMPTY_TRASH_DAYS ) {
 			$actions['delete']  = '<a title="' . esc_attr__( 'Delete this item permanently',     'bbpress' ) . '" href="' . esc_url( wp_nonce_url( add_query_arg( array( 'action' => 'bbp_toggle_reply_trash', 'sub_action' => 'delete',  'reply_id' => $reply->ID ) ), 'delete-'  . $reply->post_type . '_' . $reply->ID ) ) . '" onclick="return confirm(\'' . esc_js( __( 'Are you sure you want to delete that permanently?', 'bbpress' ) ) . '\' );" class="bbp-reply-delete-link">' . $r['delete_text'] . '</a>';
-		}
+		//}
 
 		// Process the admin links
 		$retval = $r['link_before'] . implode( $r['sep'], $actions ) . $r['link_after'];

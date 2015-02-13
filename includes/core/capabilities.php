@@ -195,7 +195,6 @@ function bbp_get_caps_for_role( $role = '' ) {
 				// Topic caps
 				'publish_topics'        => true,
 				'edit_topics'           => true,
-				'delete_topics'         => true,
 
 				// Reply caps
 				'publish_replies'       => true,
