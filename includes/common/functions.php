@@ -1062,7 +1062,7 @@ function bbp_notify_subscribers( $reply_id = 0, $topic_id = 0, $forum_id = 0, $a
 	$reply_content = strip_tags( bbp_get_reply_content( $reply_id ) );
 	$reply_url     = bbp_get_reply_url( $reply_id );
 	$blog_name     = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	$do_not_reply  = '<no-reply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
+	$do_not_reply  = '<noreply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
 
 	// For plugins to filter messages per reply/topic/user
 	$message = sprintf( __( '%1$s wrote:
@@ -1095,12 +1095,6 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 
 	/** Users *****************************************************************/
 
-	// Array to hold BCC's
-	$headers = array();
-
-	// Setup the From header
-	$headers[] = 'From: ' . get_bloginfo( 'name' ) . ' ' . $do_not_reply;
-	
 	// Get topic subscribers and bail if empty
 	$user_ids = bbp_get_topic_subscribers( $topic_id, true );
 	if ( empty( $user_ids ) ) {
@@ -1116,16 +1110,11 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 		}
 
 		// Custom headers
-		$headers[] = apply_filters( 'cc_append_cc_email_address', $user_id );
+		$header = apply_filters( 'cc_append_cc_email_address', $user_id );
 
 		// Send notification email
-		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $headers );
+		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $header );
 	}
-
-	/** Send it ***************************************************************/
-
-	// Custom headers
-	$headers = apply_filters( 'bbp_subscription_mail_headers', $headers );
 
 	do_action( 'bbp_pre_notify_subscribers', $reply_id, $topic_id, $user_ids );
 
@@ -1202,7 +1191,7 @@ function bbp_notify_forum_subscribers( $topic_id = 0, $forum_id = 0, $anonymous_
 	$topic_content = strip_tags( bbp_get_topic_content( $topic_id ) );
 	$topic_url     = get_permalink( $topic_id );
 	$blog_name     = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	$do_not_reply  = '<no-reply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
+	$do_not_reply  = '<noreply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
 
 	// For plugins to filter messages per reply/topic/user
 	$message = sprintf( __( '%1$s posted in the topic %4$s:
@@ -1236,12 +1225,6 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 
 	/** User ******************************************************************/
 
-	// Array to hold BCC's
-	$headers = array();
-
-	// Setup the From header
-	$headers[] = 'From: ' . get_bloginfo( 'name' ) . ' ' . $do_not_reply;
-	
 	// Get topic subscribers and bail if empty
 	$user_ids = bbp_get_forum_subscribers( $forum_id, true );
 	if ( empty( $user_ids ) ) {
@@ -1257,16 +1240,11 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 		}
 
 		// Custom headers
-		$headers[] = apply_filters( 'cc_append_cc_email_address', $user_id );
+		$header = apply_filters( 'cc_append_cc_email_address', $user_id );
 
 		// Send notification email
-		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $headers );
+		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $header );
 	}
-
-	/** Send it ***************************************************************/
-
-	// Custom headers
-	$headers = apply_filters( 'bbp_subscription_mail_headers', $headers );
 
 	do_action( 'bbp_pre_notify_forum_subscribers', $topic_id, $forum_id, $user_ids );
 
