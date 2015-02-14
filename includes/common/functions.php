@@ -1115,11 +1115,11 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 			continue;
 		}
 
-		// Get email address of subscribed user
-		$headers[] = 'Bcc: ' . get_userdata( $user_id )->user_email;
-
 		// Custom headers
 		$headers[] = apply_filters( 'cc_append_cc_email_address', $user_id );
+
+		// Send notification email
+		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $headers );
 	}
 
 	/** Send it ***************************************************************/
@@ -1128,10 +1128,6 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 	$headers = apply_filters( 'bbp_subscription_mail_headers', $headers );
 
 	do_action( 'bbp_pre_notify_subscribers', $reply_id, $topic_id, $user_ids );
-
-	// Send notification email
-	$do_not_reply = ''; // ma-ito
-	wp_mail( $do_not_reply, $subject, $message, $headers );
 
 	do_action( 'bbp_post_notify_subscribers', $reply_id, $topic_id, $user_ids );
 
@@ -1260,11 +1256,11 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 			continue;
 		}
 
-		// Get email address of subscribed user
-		$headers[] = 'Bcc: ' . get_userdata( $user_id )->user_email;
-
 		// Custom headers
 		$headers[] = apply_filters( 'cc_append_cc_email_address', $user_id );
+
+		// Send notification email
+		wp_mail( get_userdata( $user_id )->user_email, $subject, $message, $headers );
 	}
 
 	/** Send it ***************************************************************/
@@ -1273,10 +1269,6 @@ Login and visit the topic to unsubscribe from these emails.', 'bbpress' ),
 	$headers = apply_filters( 'bbp_subscription_mail_headers', $headers );
 
 	do_action( 'bbp_pre_notify_forum_subscribers', $topic_id, $forum_id, $user_ids );
-
-	// Send notification email
-	$do_not_reply = ''; // ma-ito
-	wp_mail( $do_not_reply, $subject, $message, $headers );
 
 	do_action( 'bbp_post_notify_forum_subscribers', $topic_id, $forum_id, $user_ids );
 
