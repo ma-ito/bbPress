@@ -43,7 +43,8 @@ function bbp_format_buddypress_notifications( $action, $item_id, $secondary_item
 	// New reply notifications
 	if ( 'bbp_new_reply' === $action ) {
 		$topic_id    = bbp_get_reply_topic_id( $item_id );
-		$topic_title = bbp_get_topic_title( $topic_id );
+		//$topic_title = bbp_get_topic_title( $topic_id );
+		$topic_title = get_the_title( $topic_id ); // disable support topic filter(ma-ito)
 		$topic_link  = wp_nonce_url( add_query_arg( array( 'action' => 'bbp_mark_read', 'topic_id' => $topic_id ), bbp_get_reply_url( $item_id ) ), 'bbp_mark_topic_' . $topic_id );
 		$title_attr  = __( 'Topic Replies', 'bbpress' );
 
