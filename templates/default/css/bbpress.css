@@ -159,10 +159,16 @@ li.bbp-topic-freshness {
 	padding: 8px;
 }
 
-#bbpress-forums li.bbp-body .bbp-topic-content li,
-#bbpress-forums li.bbp-body .bbp-reply-content li {
+#bbpress-forums li.bbp-body .bbp-topic-content ul li,
+#bbpress-forums li.bbp-body .bbp-reply-content ul li {
 	padding-left: 1em;
 	text-indent: -1em;
+	list-style-position: inside;
+}
+#bbpress-forums li.bbp-body .bbp-topic-content ol li,
+#bbpress-forums li.bbp-body .bbp-reply-content ol li {
+	padding-left: 1.1em;
+	text-indent: -1.1em;
 	list-style-position: inside;
 }
 
