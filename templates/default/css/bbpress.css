@@ -638,7 +638,7 @@ td.bbp-topic-counts {
 	.bbp-pagination-links span.dots {
 		display: block;
 		float: left;
-		padding: 1px 4px;
+		padding: 1px 0;
 		margin-left: 7px;
 	}
 
