@@ -1062,7 +1062,7 @@ function bbp_notify_subscribers( $reply_id = 0, $topic_id = 0, $forum_id = 0, $a
 	$reply_content = strip_tags( bbp_get_reply_content( $reply_id ) );
 	$reply_url     = bbp_get_reply_url( $reply_id );
 	$blog_name     = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	$do_not_reply  = '<noreply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
+	$do_not_reply  = '<no-reply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
 
 	// For plugins to filter messages per reply/topic/user
 	$message = sprintf( __( '%1$s wrote:
@@ -1191,7 +1191,7 @@ function bbp_notify_forum_subscribers( $topic_id = 0, $forum_id = 0, $anonymous_
 	$topic_content = strip_tags( bbp_get_topic_content( $topic_id ) );
 	$topic_url     = get_permalink( $topic_id );
 	$blog_name     = wp_specialchars_decode( get_option( 'blogname' ), ENT_QUOTES );
-	$do_not_reply  = '<noreply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
+	$do_not_reply  = '<no-reply@' . ltrim( get_home_url(), '^(http|https)://' ) . '>';
 
 	// For plugins to filter messages per reply/topic/user
 	$message = sprintf( __( '%1$s posted in the topic %4$s:
