@@ -767,12 +767,6 @@ div.bbp-submit-wrapper {
 	float: right;
 }
 
-p.form-allowed-tags code {
-	display: block;
-	font-size: 12px;
-	color: #333;
-}
-
 /* =TinyMCE in themes
 -------------------------------------------------------------- */
 #bbpress-forums div.bbp-the-content-wrapper {
