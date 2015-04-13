@@ -1,13 +1,5 @@
 jQuery(document).ready( function() {
 	if ( typeof( edButtons ) !== 'undefined' ) {
-		delete edButtons[30];
-		delete edButtons[40];
-		delete edButtons[110];
-		edButtons[30] = new QTags.addButton( 'link', 'link', link_prompt );
-		edButtons[edButtons.length] = new QTags.TagButton( 'code', 'code', '[code]', '[/code]', 'c' );
-		edButtons[edButtons.length] = new QTags.TagButton( 'block', 'block', '[block]', '[/block]', 'b' );
-		QTags._buttonsInit();
-
 		// Add a button called 'link' with a callback function
 		// and this is the callback function
 		function link_prompt(e, c, ed) {
@@ -60,6 +52,14 @@ jQuery(document).ready( function() {
 			// now we've defined all the tagStart, tagEnd and openTags we process it all to the active window
 			QTags.TagButton.prototype.callback.call(t, e, c, ed);
 		};
+
+		delete edButtons[30];
+		delete edButtons[40];
+		delete edButtons[110];
+		edButtons[30] = new QTags.addButton( 'link', 'link', link_prompt );
+		edButtons[edButtons.length] = new QTags.TagButton( 'code', 'code', '[code]', '[/code]', 'c' );
+		edButtons[edButtons.length] = new QTags.TagButton( 'block', 'block', '[block]', '[/block]', 'b' );
+		QTags._buttonsInit();
 	}
 
 	/* Tab from topic title */
