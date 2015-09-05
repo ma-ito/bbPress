@@ -1665,6 +1665,12 @@ function bbp_author_link( $args = '' ) {
 				$author_links[] = get_the_author_meta( 'display_name', $user_id );
 			}
 
+			// 削除されていた場合の暫定対処(ma-ito)
+			if ( $anonymous ) {
+				$author_links[0] = apply_filters( 'cc_bbp_get_author_avatar', $author_links[0], array( 'object' => 'bbpress' ) );
+				$author_links[1] = 'Anonymous';
+			}
+
 			// Add links if not anonymous
 			if ( empty( $anonymous ) && bbp_user_has_profile( $user_id ) ) {
 				$author_url = bbp_get_user_profile_url( $user_id );
